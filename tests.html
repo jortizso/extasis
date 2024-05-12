@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        :root {
+            --d: 700ms;
+            --e: cubic-bezier(0.19, 1, 0.22, 1);
+            --font-sans: "Rubik", sans-serif;
+            --font-serif: "Cardo", serif;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+            tap-highlight-color: transparent;
+            box-sizing: border-box;
+
+        }
+
+        *::-webkit-scrollbar {
+            width: 10px;
+            background: transparent;
+            /* Fondo transparente */
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background: transparent;
+            /* Scrollbar transparente */
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+        }
+
+        .page-content {
+            display: grid;
+            grid-gap: 1rem;
+            padding: 1rem;
+            max-width: 1024px;
+            margin: 0 auto;
+            font-family: var(--font-sans);
+        }
+
+        @media (min-width: 600px) {
+            .page-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 800px) {
+            .page-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .card {
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            padding: 1rem;
+            width: 100%;
+            text-align: center;
+            color: whitesmoke;
+            background-color: whitesmoke;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 600px) {
+            .card {
+                height: 350px;
+            }
+        }
+
+        .card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 110%;
+            background-size: cover;
+            background-position: 0 0;
+            transition: transform calc(var(--d) * 1.5) var(--e);
+            pointer-events: none;
+        }
+
+        .card:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200%;
+            pointer-events: none;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.01) 11.7%, rgba(0, 0, 0, 0.02) 22.1%, rgba(0, 0, 0, 0.04) 31.2%, rgba(0, 0, 0, 0.07) 39.4%, rgba(0, 0, 0, 0.1) 46.6%, rgba(0, 0, 0, 0.15) 53.1%, rgba(0, 0, 0, 0.2) 58.9%, rgba(0, 0, 0, 0.25) 64.3%, rgba(0, 0, 0, 0.3) 69.3%, rgba(0, 0, 0, 0.35) 74.1%, rgba(0, 0, 0, 0.4) 78.8%, rgba(0, 0, 0, 0.45) 83.6%, rgba(0, 0, 0, 0.5) 88.7%, rgba(0, 0, 0, 0.55) 94.1%, rgba(0, 0, 0, 0.6) 100%);
+            transform: translatey(-50%);
+            transition: transform calc(var(--d) * 2) var(--e);
+        }
+
+
+        .card:nth-child(1):before {
+            background-image: url(https://cdn.pixabay.com/photo/2024/03/21/21/21/ai-generated-8648503_640.jpg);
+        }
+
+        @media (max-width:800px) {
+            .card:nth-child(1):before {
+                background-image: url(https://cdn.pixabay.com/photo/2024/03/21/21/21/ai-generated-8648503_640.jpg);
+            }
+        }
+
+        .card:nth-child(2):before {
+            background-image: url(https://cdn.pixabay.com/photo/2023/06/04/09/11/woman-8039209_640.jpg);
+        }
+
+        @media (max-width:800px) {
+            .card:nth-child(2):before {
+                background-image: url(https://cdn.pixabay.com/photo/2023/08/05/13/06/woman-8171050_1280.jpg);
+            }
+        }
+
+        .card:nth-child(3):before {
+            background-image: url(https://cdn.pixabay.com/photo/2020/05/11/06/49/man-5156702_640.jpg);
+        }
+
+        @media (max-width:800px) {
+            .card:nth-child(3):before {
+                background-image: url(https://cdn.pixabay.com/photo/2020/05/11/06/49/man-5156702_640.jpg);
+            }
+        }
+
+        .card:nth-child(4):before {
+            background-image: url(https://cdn.pixabay.com/photo/2022/10/30/04/27/lingerie-7556565_1280.jpg);
+        }
+
+        @media (max-width:800px) {
+            .card:nth-child(4):before {
+                background-image: url(https://cdn.pixabay.com/photo/2020/03/27/15/45/bondage-4973997_1280.jpg);
+            }
+        }
+
+        .content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+            transition: transform var(--d) var(--e);
+            z-index: 1;
+        }
+
+        .content>*+* {
+            margin-top: 1rem;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            line-height: 1.2;
+            color: #fff;
+        }
+
+        .copy {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-style: italic;
+            line-height: 1.35;
+        }
+
+        .btn {
+            cursor: pointer;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.65rem;
+            font-weight: bold;
+            letter-spacing: 0.025rem;
+            text-transform: uppercase;
+            background: none;
+            color: #5213ff;
+            border: 1px solid #5213ff;
+        }
+
+        .btn:hover {
+            color: #4207e4;
+            border: 1px solid #4207e4;
+        }
+
+        .btn:focus {
+            outline-offset: 3px;
+        }
+
+        @media (hover: hover) and (min-width: 600px) {
+            .card:after {
+                transform: translatey(0);
+            }
+
+            .content {
+                transform: translatey(calc(100% - 4.5rem));
+            }
+
+            .content>*:not(.title) {
+                opacity: 0;
+                transform: translatey(1rem);
+                transition: transform var(--d) var(--e), opacity var(--d) var(--e);
+            }
+
+            .card:hover,
+            .card:focus-within {
+                align-items: center;
+            }
+
+            .card:hover:before,
+            .card:focus-within:before {
+                transform: translatey(-4%);
+            }
+
+            .card:hover:after,
+            .card:focus-within:after {
+                transform: translatey(-50%);
+            }
+
+            .card:hover .content,
+            .card:focus-within .content {
+                transform: translatey(0);
+            }
+
+            .card:hover .content>*:not(.title),
+            .card:focus-within .content>*:not(.title) {
+                opacity: 1;
+                transform: translatey(0);
+                transition-delay: calc(var(--d) / 8);
+            }
+
+            .card:focus-within:before,
+            .card:focus-within:after,
+            .card:focus-within .content,
+            .card:focus-within .content>*:not(.title) {
+                transition-duration: 0s;
+            }
+        }
+
+        h3 {
+            font-size: 2rem;
+            color: #fff;
+            font-family: Roboto;
+            text-align: center;
+        }
+
+        h3 span {
+            color: #0059ff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h3>Explora las <span>Tendencias</span></h3> -->
+    <main class="page-content">
+        <div class="card">
+            <div class="content">
+                <h2 class="title">Escorts</h2>
+                <p class="copy">
+                    Descubrí las mejores escorts en Paraguay con una variedad de servicios eróticos. ¡No esperes más y
+                    anímate!
+                </p>
+                <button class="btn">Ver sección</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <h2 class="title">Trans</h2>
+                <p class="copy">
+                    Explora nuevas sensaciones con las trans más sexys de Paraguay. No pierdas la oportunidad de
+                    conocerlas, están dispuestas a todo. ¡Llama ahora!
+                </p>
+                <button class="btn">Ver sección</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <h2 class="title">Masculinos</h2>
+                <p class="copy">
+                    Encontrá escorts y acompañantes masculinos en Paraguay para disfrutar de encuentros con hombres.
+                    Animate y contacta.
+                </p>
+                <button class="btn">Ver sección</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <h2 class="title">Encuentros</h2>
+                <p class="copy">
+                    Descubre citas y encuentros eróticos para explorar tu lado más ardiente en Paraguay. Encuentra
+                    swingers, lesbianas y busca amigos.
+                </p>
+                <button class="btn">Ver sección</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
